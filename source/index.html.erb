@@ -9,10 +9,10 @@ title: Le Wagon - Homepage
     <form action="" class="form-inline">
       <input type="text" class="form-control input-lg" placeholder="Where?">
       <input type="text" class="form-control input-lg" placeholder="When?">
-      <select name="" id="" class="form-control input-lg">
-        <option value="1">1 Guest</option>
-        <option value="2">2 Guests</option>
-        <option value="3">3 Guests</option>
+      <select name="" id="" class="form-control input-lg test">
+        <option value="1" class="dropdown-letter-size">1 Guest</option>
+        <option value="2" class="dropdown-letter-size">2 Guests</option>
+        <option value="3" class="dropdown-letter-size">3 Guests</option>
       </select>
       <input type="submit" class="btn btn-primary btn-lg" value="Search">
     </form>
@@ -30,6 +30,14 @@ title: Le Wagon - Homepage
           <div class="card-description">
             <h3><%= flat.name %></h3>
             <p><%= flat.description %></p>
+            <p class="rating">
+              <% flat.rating.times do %>
+                <i class="fa fa-star" style="color: #E59F00"></i>
+              <% end %>
+              <% (5-flat.rating).times do %>
+                  <i class="fa fa-star" style="color: grey"></i>
+              <% end %>
+            </p>
           </div>
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{owner}", class:"card-user" %>
           <%= link_to "", "flats/#{owner}.html", class: "card-link" %>
